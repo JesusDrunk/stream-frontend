@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stream to Earn</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="role-selector">
+    <h2>Выберите роль</h2>
+    <button onclick="setRole('streamer')">Я стример</button>
+    <button onclick="setRole('viewer')">Я зритель</button>
+  </div>
+
+  <div id="streamer-panel" style="display:none;">
+    <h2>Панель стримера</h2>
+    <p>Ссылка на Twitch (https://www.twitch.tv/имя_канала):</p>
+    <input type="text" id="twitch-url" placeholder="https://www.twitch.tv/your_channel" />
+    <button onclick="saveTwitchUrl()">Сохранить</button>
+    <p>Баланс: <span id="streamer-balance">0</span> монет</p>
+    <button onclick="topUpBalance()">Пополнить за TON</button>
+  </div>
+
+  <div id="viewer-panel" style="display:none;">
+    <h2>Панель зрителя</h2>
+    <p>Ваш баланс: <span id="viewer-coins">0</span> монет</p>
+    <div id="player-container">
+      <iframe id="twitch-player" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <button onclick="startWatching()">Начать просмотр</button>
+  </div>
+</body>
+</html>
